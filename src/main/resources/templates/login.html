@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+  <link th:href="@{/css/login.css}" rel="stylesheet" />
+    <title>Paws | Login</title>
+</head>
+<body>
+  <div class="big-box">
+    <div id="wrapper">
+      <div class="form-box login">
+        <h1 id="login">Login here</h1>
+
+        <form th:action="@{/login}" th:object="${loginForm}" method="post">
+
+          <div class="input-box">
+            <label id="usernameLbl">Username:</label><br>
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="email" id="email" name="email" th:field="*{email}" placeholder="Enter Email" required oninput="validateEmail()">
+            <small id="error-message"></small>
+          </div>
+
+          <div class="input-box">
+            <label>Password:</label><br>
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" id="password" name="password" th:field="*{password}" placeholder="Enter Password" required>
+          </div>
+
+          <div class="remember-forgot">
+            <label><input type="checkbox">Remember me</label>
+            <a href="#">Forgot Password</a>
+          </div>
+
+          <input type="submit" value="Login" class="button">
+
+          <div class="login-register">
+            <p id="signup">Do not have an account?<a href="registrationForm.jsp" class="signup-image-link">Register</a></p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
